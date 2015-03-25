@@ -3,7 +3,7 @@
 kirbytext::$pre[] = function($kirbytext, $value) 
 {
     
-  preg_match_all("/^\s*--\s*row\s*(xs|sm|md|lg)?\s*([\w\,\-\:\s]*)\s*--\s*$/m",$value,$row_matches,PREG_OFFSET_CAPTURE|PREG_SET_ORDER);
+  preg_match_all("/^\s*--\s*row\s*(xs|sm|md|lg)?\s*([\w\,\s]*)\s*--\s*$/m",$value,$row_matches,PREG_OFFSET_CAPTURE|PREG_SET_ORDER);
   preg_match_all("/^\s*---\s*$/m",$value,$section_matches,PREG_OFFSET_CAPTURE|PREG_SET_ORDER);
   preg_match_all("/^\s*--\s*end\s*--\s*$/m",$value,$end_matches,PREG_OFFSET_CAPTURE|PREG_SET_ORDER);
   
