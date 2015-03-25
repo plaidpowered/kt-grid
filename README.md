@@ -36,8 +36,8 @@ This cell will fill half the container, centered.
 ```
 -- row [xs|sm|md|lg] COLUMNS --
 ...
-[---]
-...
+[---
+...]
 -- end --
 ```
 
