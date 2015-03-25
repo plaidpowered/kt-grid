@@ -20,7 +20,7 @@ This is a third column, it is 25% wide
 -- end --
 ```
 
-Create in a single cell, 6 columns wide, with a 3 column offset
+Create a single cell, 6 columns wide, with a 3 column offset
 ```
 -- col md 6+3 --
 This cell will fill half the container, centered.
@@ -36,6 +36,8 @@ This cell will fill half the container, centered.
 ```
 -- row [xs|sm|md|lg] COLUMNS --
 ...
+[---]
+...
 -- end --
 ```
 
@@ -47,7 +49,7 @@ Use `---` to divide cells. The number of cells between `-- row --` and `-- end -
 
 ### Create a single cell of a particular column width:
 
-```Markdown
+```
 -- col [xs|sm|md|lg] [SIZE][+OFFSET] --
 ...
 -- end --
