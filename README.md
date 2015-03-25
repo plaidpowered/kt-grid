@@ -29,6 +29,8 @@ This cell will fill half the container, centered.
 
 ## Syntax
 
+**Note: At present, nested grids are NOT SUPPORTED.** You can try it out, but I doubt it'll work.
+
 ### Create a multi-cell row:
 
 ```
