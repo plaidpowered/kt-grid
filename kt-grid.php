@@ -41,7 +41,7 @@ kirbytext::$pre[] = function($kirbytext, $value)
         
     $value = preg_replace("/{$row[0][0]}/m", "<!--bs|row-->\n<!--bs|{$grid_target}:".trim($grid_sizes[0])."-->", $value, 1);
     foreach($sections as $index => $section)
-      $value = preg_replace("/{$section[0][0]}/m","<!--bs|{$grid_target}:".trim($grid_sizes[$index+1])."-->",$value,1);
+      $value = preg_replace("/{$section[0][0]}/m","<!--bs|end-->\n<!--bs|{$grid_target}:".trim($grid_sizes[$index+1])."-->",$value,1);
     $value = preg_replace("/{$end[0][0]}/m","<!--bs|end-->",$value,1);
     
     //$global_offset = strlen($value) - $value_length;
@@ -53,11 +53,35 @@ kirbytext::$pre[] = function($kirbytext, $value)
 kirbytext::$post[] = function($kirbytext, $value) 
 {
   
-  /*$start = 0;
-  while (preg_match("^\s*--\s*row\s*(xs|sm|md|lg)\s*([\w\,\-\:\s]*)\s*--\s*$",$value,$matches,PREG_OFFSET_CAPTURE,$start))
+  preg_match_all("/^\s*<!--bs\|([[a-z]{2,3}]*?)(:([0-9]{1,2}))?(\+([0-9]{1,2}))?-->\s*$/m",$value,$matches,PREG_SET_ORDER);
+  
+  foreach($matches as $match) 
   {
+   
+    $replacement = $match[0];
     
-  }*/
+    if (count($match) >= 2 && $match[1] === "row")
+    {
+      $replacement = '<div class="row">';
+    }
+    else if (count($match) >= 2 && $match[1] === "end")
+    {
+      $replacement = '</div>';
+    }
+    else if (count($match) >= 4 && !empty($match[1]) && is_numeric($match[3]))
+    {
+      $replacement = sprintf('<div class="col-%1$s-%2$d%3$s">', $match[1], $match[3],
+                             count($match) >= 6 && is_numeric($match[5]) ? sprintf("col-%s-offset-%d", $match[1], $match[5]) : "" );
+    }
+    else if (count($match) >= 6 && !empty($match[1]) && is_numeric($match[5]))
+    {
+      $replacement = sprintf('<div class="col-%1$s-offset-%2$d">', $match[1], $match[5]);                             
+    }
+    
+    $value = str_replace($match[0], $replacement, $value);
+    
+  }
   
   return $value;
+  
 };
