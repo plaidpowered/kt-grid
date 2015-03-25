@@ -37,7 +37,7 @@ This cell will fill half the container, centered.
 -- end --
 ```
 
-Where *COLUMNS* is a comma separated list of column widths. For more information, see the [Bootstrap CSS Grid](http://getbootstrap.com/css/#grid) documentation
+*COLUMNS*: (required) is a comma separated list of column widths. For more information, see the [Bootstrap CSS Grid](http://getbootstrap.com/css/#grid) documentation
 
 The media query breakpoint is optional, and defaults to *md* (Medium devices/Desktop)
 
@@ -46,11 +46,11 @@ Use `---` to divide cells. The number of cells between `-- row --` and `-- end -
 ### Create a single cell of a particular column width:
 
 ```Markdown
--- col [xs|sm|md|lg] SIZE[+OFFSET] --
+-- col [xs|sm|md|lg] [SIZE][+OFFSET] --
 ...
 -- end --
 ```
 
-Where *SIZE* is a column width between 1 and 12.
+*SIZE*: (optional) is a column width between 1 and 12
 
-*OFFSET* is an optional column offset between 1 and 11. See [Bootstrap: Offset columns](http://getbootstrap.com/css/#grid-offsetting) for more information.
+*OFFSET*: (optional) is a column offset between 1 and 11. See [Bootstrap: Offset columns](http://getbootstrap.com/css/#grid-offsetting) for more information.
