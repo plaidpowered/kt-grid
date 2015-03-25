@@ -5,7 +5,7 @@ The markup structure is based loosely on @dreikanter's [Markdown Grid](https://g
 
 ## Installation
 
-Either drop this whole repository inside your Kirby plugins/ folder, or if you don't care about updates, all you really need is kt-grid.php
+Either drop this whole repository inside your Kirby site/plugins folder, or if you don't care about updates, all you really need is kt-grid.php
 
 ## Examples
 
