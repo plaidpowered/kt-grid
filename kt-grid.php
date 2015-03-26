@@ -108,7 +108,7 @@ function ktgrid_preprocess_row($content)
     foreach($sections as $index => $section) 
       $replacement = preg_replace("/{$section[0][0]}/m", "<!--bs|end-->\n<!--bs|{$mq_target}:".trim($columns[$index+1])."-->", $replacement, 1);    
                                   
-    $replacement .= "\n<!--end-->\n<!--bs|end-->\n<!--bs|cf-->\n";
+    $replacement .= "\n<!--end-->\n<!--bs|end-->\n";
                
     $content = substr_replace($content, $replacement, $match[0][1], strlen($match[0][0]));
     
