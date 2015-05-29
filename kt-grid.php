@@ -103,12 +103,12 @@ function ktgrid_preprocess_row($content)
       return $content;
       //number of sections don't match specified columns
     
-    $replacement = "<!--bs|row-->\n<!--bs|{$mq_target}:".trim($columns[0])."-->\n" . $inside;
+    $replacement = "\n<!--bs|row-->\n<!--bs|{$mq_target}:".trim($columns[0])."-->\n" . $inside;
     
     foreach($sections as $index => $section) 
       $replacement = preg_replace("/{$section[0][0]}/m", "<!--bs|end-->\n<!--bs|{$mq_target}:".trim($columns[$index+1])."-->", $replacement, 1);    
                                   
-    $replacement .= "\n<!--end-->\n<!--bs|end-->\n";
+    $replacement .= "\n<!--bs|end-->\n<!--bs|end-->\n";
                
     $content = substr_replace($content, $replacement, $match[0][1], strlen($match[0][0]));
     
